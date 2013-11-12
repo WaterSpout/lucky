@@ -1,0 +1,4 @@
+CoreLuckyBundle:
+    resource: "@CoreLuckyBundle/Controller/"
+    type:     annotation
+    prefix:   /
