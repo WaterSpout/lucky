@@ -1,37 +1,47 @@
-{% extends "TwigBundle::layout.html.twig" %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset={{ _charset }}"/>
+        <meta name="robots" content="noindex,nofollow" />
+        <title>{% block title %}{% endblock %}</title>
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <link href="{{ asset('css/structure.css') }}" rel="stylesheet" type="text/css" media="all" />
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+		<script src="{{ asset('js/func.js') }}"></script>
+		{% block head %}
+			<link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
+		{% endblock %}
+    </head>
+    <body>
+        <div class="container" id="content">
+            <div class="header clear-fix">
+                <div class="header-logo">
+                </div>
 
-{% block head %}
-    <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
-    <link rel="stylesheet" href="{{ asset('bundles/acmedemo/css/demo.css') }}" />
-{% endblock %}
+                <div class="search">
+                </div>
+            </div>
 
-{% block title 'Demo Bundle' %}
+            <div class="sf-reset">
+				{% block body %}
+					{% for flashMessage in app.session.flashbag.get('notice') %}
+						<div class="flash-message">
+							<em>Notice</em>: {{ flashMessage }}
+						</div>
+					{% endfor %}
 
-{% block body %}
-    {% for flashMessage in app.session.flashbag.get('notice') %}
-        <div class="flash-message">
-            <em>Notice</em>: {{ flashMessage }}
+					{% block content_header %}
+					{% endblock %}
+
+					<div class="block row">
+						{% block content %}{% endblock %}
+					</div>
+				{% endblock %}
+            </div>
         </div>
-    {% endfor %}
-
-    {% block content_header %}
-        <ul id="menu">
-            {% block content_header_more %}
-                <li><a href="{{ path('_demo') }}">Demo Home</a></li>
-            {% endblock %}
-        </ul>
-
-        <div style="clear: both"></div>
-    {% endblock %}
-
-    <div class="block">
-        {% block content %}{% endblock %}
-    </div>
-
-    {% if code is defined %}
-        <h2>Code behind this page</h2>
-        <div class="block">
-            <div class="symfony-content">{{ code|raw }}</div>
-        </div>
-    {% endif %}
-{% endblock %}
+    </body>
+</html>

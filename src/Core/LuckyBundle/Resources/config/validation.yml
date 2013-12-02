@@ -1,0 +1,17 @@
+Core\LuckyBundle\Entity\User:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: email
+            message: Этот email уже используется.
+            groups: [start_user]
+    properties:
+        email:
+            - NotBlank:
+                message: Your e-mail cannot be empty.
+                groups: [start_user]
+            - Email:
+                message: Please enter a valid e-mail address.
+                groups: [start_user]
+            - Length: { min: 7, groups: [start_user] }
+        password:
+            - Length: { min: 7, groups: [start_user] }

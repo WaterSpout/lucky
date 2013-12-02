@@ -1,0 +1,8 @@
+{% form_theme form 'CoreLuckyBundle:Form:form_div_layout.html.twig' %}
+
+{{ form_start(form, {'attr': {'role': 'form'}}) }}
+	{{ form_errors(form) }}
+	
+	{{ form_row(form.email, {'attr': {'autofocus': 'autofocus', 'placeholder': 'yourmail@gmail.com'}}) }}
+	{{ form_widget(form.save) }}
+{{ form_end(form) }}

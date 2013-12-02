@@ -1,0 +1,17 @@
+
+.sf-reset .block {
+    -moz-border-radius: 16px;
+    -webkit-border-radius: 16px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    background-color: #FFFFFF;
+    border: 1px solid #dfdfdf;
+    padding: 40px 25px;
+}
+img#video_lucky {
+	cursor: pointer;
+}
+div#list_lucky_beggars {
+	overflow-y: scroll;
+	max-height: 258px;
+}
