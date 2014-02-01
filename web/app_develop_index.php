@@ -2,7 +2,7 @@
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Debug\Debug;
-if($_REQUEST['auth'] == '99ef8a146258e11acf32c1012ad0c7db9') {
+if(isset($_REQUEST['auth']) AND $_REQUEST['auth'] == '99ef8a146258e11acf32c1012ad0c7db9') {
 	setcookie("mauth", 'ISAUTH1146258e1199ef', time()+60*60*24*30, "/");
 }
 if($_COOKIE['mauth'] != 'ISAUTH1146258e1199ef') {
