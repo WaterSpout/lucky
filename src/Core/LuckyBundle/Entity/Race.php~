@@ -52,4 +52,93 @@ class Race
     {
         $this->wclasses = new ArrayCollection();
     }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Race
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set faction
+     *
+     * @param string $faction
+     * @return Race
+     */
+    public function setFaction($faction)
+    {
+        $this->faction = $faction;
+    
+        return $this;
+    }
+
+    /**
+     * Get faction
+     *
+     * @return string 
+     */
+    public function getFaction()
+    {
+        return $this->faction;
+    }
+
+    /**
+     * Add wclasses
+     *
+     * @param \Core\LuckyBundle\Entity\Wclass $wclasses
+     * @return Race
+     */
+    public function addWclasse(\Core\LuckyBundle\Entity\Wclass $wclasses)
+    {
+        $this->wclasses[] = $wclasses;
+    
+        return $this;
+    }
+
+    /**
+     * Remove wclasses
+     *
+     * @param \Core\LuckyBundle\Entity\Wclass $wclasses
+     */
+    public function removeWclasse(\Core\LuckyBundle\Entity\Wclass $wclasses)
+    {
+        $this->wclasses->removeElement($wclasses);
+    }
+
+    /**
+     * Get wclasses
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getWclasses()
+    {
+        return $this->wclasses;
+    }
 }
